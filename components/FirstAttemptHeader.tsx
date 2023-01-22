@@ -5,7 +5,7 @@ export const FirstAttemptHeader: React.FC = () => {
   useEffect(() => {
     let previousY: number | undefined = undefined
     let translationY = 0
-    window.addEventListener('scroll', () => {
+    const handler = () => {
       const currentY = window.scrollY
       if (previousY === undefined) {
         previousY = currentY
@@ -19,7 +19,9 @@ export const FirstAttemptHeader: React.FC = () => {
       translationY = Math.min(Math.max(translationY - diff, -height), 0)
 
       nodeRef.current.style.transform = `translateY(${translationY}px)`
-    })
+    }
+    window.addEventListener('scroll', handler)
+    return () => window.removeEventListener('scroll', handler)
   }, [])
   return <header ref={nodeRef}>Header content!</header>
 }
