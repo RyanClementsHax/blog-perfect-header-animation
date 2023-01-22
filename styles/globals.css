@@ -5,20 +5,17 @@ body {
 
 main {
   margin-top: 2rem;
-}
-
-nav {
-  margin: 1rem 0;
-}
-
-.content {
   max-width: 700px;
   margin-right: auto;
   margin-left: auto;
   line-height: 1.5rem;
 }
 
-.header {
+nav {
+  margin: 1rem 0;
+}
+
+header {
   display: flex;
   padding: 1rem;
   background: green;

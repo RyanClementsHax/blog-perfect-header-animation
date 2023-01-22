@@ -1,38 +1,16 @@
+import { FirstAttemptHeader } from '@/components/FirstAttemptHeader'
 import { content } from '@/lib/content'
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
 
-export default function FirstAttempt() {
-  const nodeRef = useRef<HTMLElement>(null!)
-  useEffect(() => {
-    let previousY: number | undefined = undefined
-    let translationY = 0
-    window.addEventListener('scroll', () => {
-      const currentY = window.scrollY
-      if (previousY === undefined) {
-        previousY = currentY
-        return
-      }
-      const diff = currentY - previousY
-      previousY = currentY
-
-      const { height } = nodeRef.current.getBoundingClientRect()
-
-      translationY = Math.min(Math.max(translationY - diff, -height), 0)
-
-      nodeRef.current.style.transform = `translateY(${translationY}px)`
-    })
-  }, [])
+export default function FirstAttemptPage() {
   return (
     <>
-      <header className="header" ref={nodeRef}>
-        Header content!
-      </header>
+      <FirstAttemptHeader />
       <main>
         <nav>
           <Link href="/">Home</Link>
         </nav>
-        <div className="content">{content}</div>
+        <article>{content}</article>
       </main>
     </>
   )
