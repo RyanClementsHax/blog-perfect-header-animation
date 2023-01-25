@@ -1,9 +1,13 @@
-import Link from 'next/link'
+import { Header } from '@/components/Header'
+import { content } from '@/lib/content'
 
-export default function Home() {
+export default function Index() {
   return (
     <>
-      <Link href="/first-attempt">Go to first attempt</Link>
+      <Header />
+      <main>
+        <article>{content}</article>
+      </main>
     </>
   )
 }

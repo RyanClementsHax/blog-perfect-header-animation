@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export const FirstAttemptHeader: React.FC = () => {
+export const Header: React.FC = () => {
   const nodeRef = useRef<HTMLElement>(null!)
   useEffect(() => {
     let previousY: number | undefined = undefined
